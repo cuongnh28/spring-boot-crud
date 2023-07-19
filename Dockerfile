@@ -1,6 +1,6 @@
 FROM openjdk:8
 LABEL authors="cuongnh"
 
-COPY out/artifacts/spring_boot_crud_jar/spring-boot-crud.jar app.jar
+COPY target/spring-boot-crud-0.0.1-SNAPSHOT.jar app.jar
 
 CMD java -jar app.jar
