@@ -16,6 +16,7 @@ public class ChuyenXe implements Serializable {
 	private Long chuyenXeId;
 	@NonNull
 	private int soKhach;
+//	Test jenkins
 	@NonNull
 	private float giaVe;
 	@NonNull
