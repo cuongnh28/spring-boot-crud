@@ -1,6 +1,6 @@
 version: '3'
 services:
-  frontend:
+  backend:
     build: .
     image: cuongnh28/backend
     container_name: backend
