@@ -29,10 +29,13 @@ pipeline {
             steps {
                 script {
                     sshagent(['ssh-springboot-remote']) {
+                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-77-228-147.ap-southeast-1.compute.amazonaws.com docker-compose up -d'
                         // some block
-                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-77-228-147.ap-southeast-1.compute.amazonaws.com docker pull cuongnh28/backend'
-                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-77-228-147.ap-southeast-1.compute.amazonaws.com docker docker run --rm -d -p 8080:8080 --name backend cuongnh28/backend'
-'
+                        // sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-77-228-147.ap-southeast-1.compute.amazonaws.com docker pull cuongnh28/backend'
+                        // sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-77-228-147.ap-southeast-1.compute.amazonaws.com docker restart backend'
+                        // sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-77-228-147.ap-southeast-1.compute.amazonaws.com docker stop backend'
+                        // sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-77-228-147.ap-southeast-1.compute.amazonaws.com docker rm backend'
+                        // sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-77-228-147.ap-southeast-1.compute.amazonaws.com docker run -d -p 8080:8080 --name backend cuongnh28/backend'
                     }
                 }
             }
