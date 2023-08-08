@@ -28,9 +28,42 @@
             </providers>
         </encoder>
     </appender>
+    <appender name="STASH" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/application.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/application.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp />
+                <logLevel />
+                <mdc /> <!-- MDC variables on the Thread will be written as JSON fields -->
+                <context /> <!--Outputs entries from logback's context -->
+                <loggerName />
+                <pattern>
+                    <pattern>
+                        {
+                        "message": "#tryJson{%message}"
+                        }
+                    </pattern>
+                </pattern>
 
+                <arguments /> <!--or through StructuredArguments -->
+                <stackTrace>
+                    <fieldName>stackTrace</fieldName>
+                    <throwableConverter
+                            class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                        <maxDepthPerThrowable>30</maxDepthPerThrowable>
+                        <rootCauseFirst>true</rootCauseFirst>
+                    </throwableConverter>
+                </stackTrace>
+            </providers>
+        </encoder>
+    </appender>
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
+        <appender-ref ref="STASH" />
     </root>
 
     <logger name="org.springframework" level="INFO" />

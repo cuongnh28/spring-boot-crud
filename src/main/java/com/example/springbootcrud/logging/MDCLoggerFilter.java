@@ -14,12 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- *
- * @author HuyHV
- *
- * MDC add param
- */
 @Slf4j
 @Configuration
 @Order(Ordered.HIGHEST_PRECEDENCE)

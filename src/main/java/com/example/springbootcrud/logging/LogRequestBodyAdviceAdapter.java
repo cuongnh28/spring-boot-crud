@@ -16,12 +16,6 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author HuyHV
- *
- * LogRequestBodyAdviceAdapter
- */
 @Slf4j
 @ControllerAdvice
 public class LogRequestBodyAdviceAdapter extends RequestBodyAdviceAdapter {

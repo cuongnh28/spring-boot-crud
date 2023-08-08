@@ -21,12 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-/**
- *
- * @author HuyHV
- *
- * LogResponseBodyAdviceAdapter
- */
 @Slf4j
 @ControllerAdvice
 public class LogResponseBodyAdviceAdapter implements ResponseBodyAdvice<Object> {
