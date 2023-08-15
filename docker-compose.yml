@@ -1,7 +1,7 @@
 version: '3'
 services:
   backend:
-#    build: . => build by Jenkins instead
+#    build: .
     image: cuongnh28/backend
     container_name: backend
     ports:
